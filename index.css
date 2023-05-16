@@ -166,8 +166,142 @@ body {
     width: 30%;
 }
 
+/* My projects */
+
+.my-projects {
+    height: 100vh;
+    background-color: var(--lighter-color);
+    color: white;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 64px 0;
+}
+
+.projects-container {
+    margin: 64px 0;
+    width: 60%;
+    height: 60%;
+    display: block;
+    border-radius: 20%;
+
+    position: relative;
+}
+
+.project-image {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+
+    transition: all 0.3s ease;
+}
+
+.project-image:hover {
+    cursor: pointer;
+    opacity: 0.8;
+    transform: scale(1.01);
+}
+
+.indicators {
+    width: 100%;
+    margin-top: 12px;
+    display: flex;
+    justify-content: center;
+}
+
+/* Creating the dots under .projects-container */
+#indicator-1, #indicator-2, #indicator-3 {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background-color: #525252;
+
+    transition: all 0.3s ease;
+}
+
+#indicator-1:hover, #indicator-2:hover, #indicator-3:hover {
+    cursor: pointer;
+    transform: scale(1.15);
+}
+
+/* Spacing the dots between themselves*/
+#indicator-1 {
+    background-color: #bbbbbb;
+    margin-right: 12px;
+}
+#indicator-3 {
+    margin-left: 12px;
+}
+
+/* Creating arrows */
+.arrow-top, .arrow-bottom {
+    background-color: #bbbbbb;
+    width: 40px;
+    height: 10px;
+    border-radius: 8px;
+}
+
+.arrow-right, .arrow-left {
+    /* Arrows are positioned in relation to .projects-container */
+    position: absolute;
+    display: block;
+    z-index: 3;
+
+    transition: all 0.3s ease;
+}
+
+.arrow-right:hover, .arrow-left:hover {
+    cursor: pointer;
+    transform: scale(1.1);
+}
+
+.arrow-left:hover {
+    /* Rotate(180deg) causes left arrow stay in the starting position. Without it would change to transform(0deg) and rotate */
+    transform: rotate(180deg) scale(1.1);
+}
+
+.arrow-right {
+    /* top property is designed by eye, it's not precise. */
+    top: 53%;
+    right: -70px;
+}
+
+.arrow-left {
+    /* top property is designed by eye, it's not precise. */
+    top: 45%;
+    left: -70px;
+    transform: rotate(180deg);
+}
+
+.arrow-top {
+    transform: rotate(-60deg);
+}
+
+.arrow-bottom {
+    transform: translateY(-36px) rotate(60deg);
+}
+
+/* Footer */
+.footer {
+    font-family: var(--serif-font);
+    background-color: var(--darker-color);
+    color: white;
+    padding: 32px;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
 /* Misc */
 
 .accent {
     color: var(--accent-color);
+}
+
+.bold {
+    font-weight: bold;
 }
