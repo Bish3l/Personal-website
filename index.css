@@ -31,6 +31,7 @@ body {
 
 .hero {
     height: 100vh;
+    min-height: 800px;
     color: var(--light-color);
     background-color: var(--lighter-color);
 
@@ -83,6 +84,11 @@ body {
     align-items: center;
 }
 
+/* Navbar menu will be visible on small screens */
+.navbar-menu {
+    display: none;
+}
+
 .hero-heading {
     text-align: center;
     position: relative;
@@ -111,6 +117,7 @@ body {
 .about {
     width: 100%;
     height: 100vh;
+    min-height: 800px;
 
     background-color: var(--darker-color);
 
@@ -119,18 +126,19 @@ body {
 
 .two-col-layout {
     height: 100%;
-    padding: 40px 160px;
+    padding: 40px 60px;
 
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
 }
 
 .left-col, .right-col {
     width: 45%;
     height: 60%;
-    min-width: 400px;
+    min-height: 400px;
+    min-width: 300px;
     padding: 0 48px;
 
     border-radius: 20px;
@@ -170,6 +178,7 @@ body {
 
 .my-projects {
     height: 100vh;
+    min-height: 800px;
     background-color: var(--lighter-color);
     color: white;
 
@@ -216,7 +225,6 @@ body {
     width: 32px;
     height: 32px;
     border-radius: 50%;
-    background-color: #525252;
 
     transition: all 0.3s ease;
 }
@@ -226,9 +234,16 @@ body {
     transform: scale(1.15);
 }
 
+.on {
+    background-color: #bbbbbb;
+}
+
+.off {
+    background-color: #525252;
+}
+
 /* Spacing the dots between themselves*/
 #indicator-1 {
-    background-color: #bbbbbb;
     margin-right: 12px;
 }
 #indicator-3 {
@@ -304,4 +319,89 @@ body {
 
 .bold {
     font-weight: bold;
+}
+
+/* Media queries */
+
+@media only screen and (max-width: 924px) {
+    .navbar-links {
+        display: none;
+    }
+    /* Creating navbar menu */
+    .navbar-menu {
+        width: 46px;
+        height: 30px;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .navbar-menu:hover {
+        cursor: pointer;
+    }
+
+    .bar1, .bar2, .bar3 {
+        width: 100%;
+        height: 4px;
+        border-radius: 10px;
+        background-color: var(--light-color);
+    }
+
+    .two-col-layout {
+        justify-content: space-between;
+        padding: 40px 30px;
+    }
+    .right-col, .left-col {
+        padding: 0 24px;
+    }
+
+    .about-primary-header {
+        font-size: var(--font-size-md);
+    }
+}
+
+@media only screen and (max-width: 696px) {
+    /* Changing fonts to match the screen width*/
+    .navbar-logo {
+        font-size: var(--font-size-sm);
+    }
+    .hero-heading {
+        margin-top: 240px;
+    }
+    .main-heading {
+        font-size: var(--font-size-lg);
+        line-height: 60px;
+    }
+    .secondary-heading {
+        margin-top: 15px;
+        font-size: var(--font-size-sm);
+    } 
+
+    .about {
+        height: 1100px;
+    }
+    .two-col-layout {
+        height: 100%;
+
+        flex-direction: column;
+        align-items: space-between;
+    }
+
+    .left-col, .right-col {
+        height: 500px;
+    }
+
+    .projects-container {
+        width: 80%;
+    }
+
+    /* Making arrows closer to the container so they don't flow off the document*/
+    .arrow-left {
+        left: -40px;
+    }
+    .arrow-right {
+        right: -40px;
+    }
 }
