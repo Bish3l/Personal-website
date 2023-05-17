@@ -37,8 +37,7 @@ body {
     height: 100vh;
     min-height: 800px;
     color: var(--light-color);
-    background-color: var(--lighter-color);
-
+    background-image: linear-gradient(180deg, var(--lighter-color), var(--darker-color));
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -57,6 +56,13 @@ body {
     align-items: center;
 
     position: relative;
+
+    /* Animation properties */
+    opacity: 0;
+    transform: translateY(-100%);
+    animation: 1.5s showNavbar ease forwards;
+    animation-delay: 2s;
+
 }
 
 /* Will be toggled using menu on small screens */
@@ -107,10 +113,22 @@ body {
     font-family: var(--serif-font);
     font-size: var(--font-size-xxl);
     font-weight: bold;
+
+    /* Animation properties */
+    opacity: 0;
+    transform: translateY(-10%);
+    animation: 2.25s showMainHeading ease forwards;
 }
 .secondary-heading {
     font-family: var(--sans-serif-font);
     font-size: var(--font-size-lg);
+    font-weight: 200;
+
+    /* Animation properties */
+    opacity: 0;
+    transform: translateY(10%);
+    animation: 1.5s showSecondaryHeading ease forwards;
+    animation-delay: 1s;
 }
 .hero-heading::after {
     content: "";
@@ -121,6 +139,11 @@ body {
     height: 3px;
     border-radius: 4px;
     background-color: var(--light-color);
+
+    /* Animation properties */
+    transform: scale(0);
+    animation: 1.5s showUnderline ease forwards;
+    animation-delay: 1s;
 }
 
 /* About */
@@ -190,7 +213,7 @@ body {
 .my-projects {
     height: 100vh;
     min-height: 800px;
-    background-color: var(--lighter-color);
+    background-image: linear-gradient(180deg, var(--darker-color), var(--lighter-color));
     color: white;
 
     display: flex;
@@ -280,12 +303,6 @@ body {
 
 .arrow-right:hover, .arrow-left:hover {
     cursor: pointer;
-    transform: scale(1.1);
-}
-
-.arrow-left:hover {
-    /* Rotate(180deg) causes left arrow stay in the starting position. Without it would change to transform(0deg) and rotate */
-    transform: rotate(180deg) scale(1.1);
 }
 
 .arrow-right {
@@ -307,19 +324,6 @@ body {
 
 .arrow-bottom {
     transform: translateY(-36px) rotate(60deg);
-}
-
-/* Footer */
-.footer {
-    font-family: var(--serif-font);
-    background-color: var(--darker-color);
-    color: white;
-    padding: 32px;
-    
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
 }
 
 /* Misc */
@@ -518,5 +522,47 @@ body {
     }
     to {
         transform: translateX(0%);
+    }
+}
+
+@keyframes showMainHeading {
+    from {
+        opacity: 0;
+        transform: translateY(-10%);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes showSecondaryHeading {
+    from {
+        opacity: 0;
+        transform: translateY(10%);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes showUnderline {
+    from {
+        transform: scale(0);
+    }
+    to {
+        transform: scale(1);
+    }
+}
+
+@keyframes showNavbar {
+    from {
+        opacity: 0;
+        tranform: translateY(-100%);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
     }
 }
