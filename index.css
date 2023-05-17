@@ -15,6 +15,7 @@
     /* Colors */
     --darker-color: #222831;
     --lighter-color: #393E46;
+    --extra-light-color: #616875;
     --light-color: #EEEEEE;
     --accent-color: #1494fd;
 
@@ -182,6 +183,12 @@ body {
     justify-content: center;
     align-items: center;
     text-align: center;
+
+    transition: all 0.5s ease;
+}
+
+.left-col:hover, .right-col:hover {
+    background-color: var(--extra-light-color);
 }
 
 .about-primary-header {
@@ -343,6 +350,15 @@ body {
 /* Media queries */
 
 @media only screen and (max-width: 924px) {
+    .hero-navbar {
+        z-index: 60;
+        position: fixed;
+    }
+
+    .navbar-logo {
+        font-size: var(--font-size-sm);
+    }
+
     .navbar-links {
         display: none;
     }
@@ -355,10 +371,6 @@ body {
         flex-direction: column;
         justify-content: space-between;
         align-items: center;
-
-        z-index: 55;
-        position: fixed;
-        right: 50px;
     }
 
     .navbar-menu:hover {
@@ -388,7 +400,7 @@ body {
 
         position: fixed;
         right: 0;
-        z-index: 50;
+        z-index: 5;
     }
 
     .sidenav-links {
@@ -426,7 +438,7 @@ body {
 @media only screen and (max-width: 696px) {
     /* Changing fonts to match the screen width*/
     .navbar-logo {
-        font-size: var(--font-size-sm);
+        font-size: var(--font-size-xs);
     }
     .hero-heading {
         margin-top: 240px;
