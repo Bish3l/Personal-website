@@ -5,6 +5,7 @@
     --serif-font: 'Noto Serif', serif;
     --sans-serif-font: 'Public Sans', sans-serif;
 
+    --font-size-xs: 20px;
     --font-size-sm: 24px;
     --font-size-md: 36px;
     --font-size-lg: 48px;
@@ -16,6 +17,9 @@
     --lighter-color: #393E46;
     --light-color: #EEEEEE;
     --accent-color: #1494fd;
+
+    /* Timing */
+    --menu-animation: 0.5s;
 }
 
 * {
@@ -38,6 +42,8 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+
+    position: relative
 }
 
 .hero-navbar {
@@ -49,6 +55,13 @@ body {
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+
+    position: relative;
+}
+
+/* Will be toggled using menu on small screens */
+.hero-sidenav {
+    display: none;
 }
 
 .navbar-logo {
@@ -67,10 +80,6 @@ body {
 .icon:hover, .link:hover, .navbar-logo:hover {
     cursor: pointer;
     transform: scale(1.15);
-}
-
-#github-icon {
-    padding-right: 5px;
 }
 
 .navbar-links {
@@ -110,6 +119,7 @@ body {
     left: 39%;
     bottom: -40px;
     height: 3px;
+    border-radius: 4px;
     background-color: var(--light-color);
 }
 
@@ -172,6 +182,7 @@ body {
 .about-line {
     z-index: 3;
     width: 30%;
+    border-radius: 1px;
 }
 
 /* My projects */
@@ -321,6 +332,10 @@ body {
     font-weight: bold;
 }
 
+.show {
+    display: none !important;
+}
+
 /* Media queries */
 
 @media only screen and (max-width: 924px) {
@@ -336,6 +351,10 @@ body {
         flex-direction: column;
         justify-content: space-between;
         align-items: center;
+
+        z-index: 55;
+        position: fixed;
+        right: 50px;
     }
 
     .navbar-menu:hover {
@@ -347,6 +366,44 @@ body {
         height: 4px;
         border-radius: 10px;
         background-color: var(--light-color);
+    }
+
+    .hero-sidenav {
+        font-family: var(--serif-font);  
+        background-color: var(--darker-color);
+        height: 100%;
+        width: 160px;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        /* Sidenav is hidden by default */
+        transform: translateX(100%);
+
+        position: fixed;
+        right: 0;
+        z-index: 50;
+    }
+
+    .sidenav-links {
+        font-size: var(--font-size-xs);
+        font-family: var(--sans-serif-font);
+
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .link {
+        padding: 20px 0;
+    }
+
+    #github-icon {
+        padding-right: 0;
+        padding-bottom: 15px;
     }
 
     .two-col-layout {
@@ -403,5 +460,63 @@ body {
     }
     .arrow-right {
         right: -40px;
+    }
+}
+
+/* Animations */
+
+.rotateBar1 {
+    animation: var(--menu-animation) rotateBar1 ease forwards;
+}
+
+@keyframes rotateBar1 {
+    from {
+        transform: rotate(0) translate(0, 0);
+    }
+    to {
+        /* Forming an X using by rotating top bar & covering space of bar 2 using translate*/
+        transform: rotate(45deg) translate(5px, 13.5px);
+    }
+}
+
+.fadeBar2 {
+    animation: var(--menu-animation) fadeBar2 ease forwards;
+}
+
+@keyframes fadeBar2 {
+    from {
+        opacity: 1;
+        transform: scale(1);
+    }
+    to {
+        opacity: 0;
+        transform: scale(0);
+    }
+}
+
+.rotateBar3 {
+    animation: var(--menu-animation) rotateBar3 ease forwards;
+}
+
+@keyframes rotateBar3 {
+    from {
+        transform: rotate(0) translate(0, 0);
+    }
+    to {
+        /* Forming an X using by rotating bottom bar & covering space of bar 2 using translate*/
+        transform: rotate(-45deg) translate(5px, -13.5px);
+    }
+}
+
+.showSidenav {
+    animation: var(--menu-animation) showSidenav ease forwards;  
+}
+
+@keyframes showSidenav {
+    from {
+        transform: translateX(100%);
+    }
+    to {
+        transform: translateX(0%);
     }
 }
