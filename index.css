@@ -76,6 +76,10 @@ body {
     font-weight: 600;
 }
 
+.personal-logo {
+    width: 120px;
+}
+
 .icon {
     min-width: 35px;
 }
@@ -318,11 +322,6 @@ body {
 /* Media queries */
 
 @media only screen and (max-width: 924px) {
-    .hero-navbar {
-        z-index: 60;
-        position: fixed;
-    }
-
     .navbar-logo {
         font-size: var(--font-size-sm);
     }
@@ -339,6 +338,13 @@ body {
         flex-direction: column;
         justify-content: space-between;
         align-items: center;
+
+        position: fixed;
+        top: 60px;
+        right: 50px;
+        z-index: 1500;
+
+        /* Animation matching the navbar's */
     }
 
     .navbar-menu:hover {
@@ -368,7 +374,7 @@ body {
 
         position: fixed;
         right: 0;
-        z-index: 5;
+        z-index: 1;
     }
 
     .sidenav-links {
@@ -405,9 +411,6 @@ body {
 
 @media only screen and (max-width: 696px) {
     /* Changing fonts to match the screen width*/
-    .navbar-logo {
-        font-size: var(--font-size-xs);
-    }
     .hero-heading {
         margin-top: 240px;
     }
@@ -443,10 +446,10 @@ body {
         height: 32px;
     }
     .arrow-left {
-        left: -40px;
+        left: -33px;
     }
     .arrow-right {
-        right: -40px;
+        right: -33px;
     }
 
 }
