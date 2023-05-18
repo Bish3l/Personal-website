@@ -32,12 +32,9 @@ body {
     padding: 0;
 }
 
-a {
-    text-decoration: inherit;
-}
-
-a:visited {
+a, a:visited {
     color: inherit;
+    text-decoration: inherit;
 }
 
 /* Hero styling */
