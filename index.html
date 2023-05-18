@@ -5,6 +5,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="index.css">
+    <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
     <title>Victor Bishel | Portfolio</title>
 </head>
 <body>
@@ -28,9 +33,9 @@
             <div class="sidenav-links">
                 <div class="link">About</div>
                 <div class="link">My Projects</div>
-                <a href="https://vk.com/bishel0"><img class="icon" id="vk-icon"  src="assets/VK_LOGO1.png"></a>
-                <a href="https://github.com/Bish3l"><img class="icon" id="github-icon" src="assets/GITHUB_LOGO1.png"></a>
-                <a href="https://t.me/bish3l"><img class="icon" id="telegram-icon" src="assets/TELEGRAM_LOGO1.png"></a>
+                <a href="https://vk.com/bishel0"><img class="icon" id="vk-icon"  src="assets/VK_LOGO1.png" alt="vk"></a>
+                <a href="https://github.com/Bish3l"><img class="icon" id="github-icon" src="assets/GITHUB_LOGO1.png" alt="github"></a>
+                <a href="https://t.me/bish3l"><img class="icon" id="telegram-icon" src="assets/TELEGRAM_LOGO1.png" alt="telegram"></a>
             </div>
         </nav>
         <div class="hero-heading">
@@ -45,7 +50,7 @@
                 <hr class="about-line">
                 <br>
                 <p class="about-paragraph">
-                    I am a web developer who is passionate about creating websites and designs, providing great UI/UX. <br> I live in Krasnoyarsk, Russia.
+                    I am a web developer who is passionate about creating websites, designs and providing great user experience. <br> I live in Krasnoyarsk, Russia.
                 </p>
             </div>
             <div class="col">
@@ -69,23 +74,25 @@
         <div class="main-heading">My projects</div>
         <div class="projects-container">
             <div class="arrow-left">
-                <div class="arrow-top"></div>
-                <div class="arrow-bottom"></div>
+                <img src="assets/left-arrow.png" alt="arrow-left">
             </div>
-            <div class="arrow-right" hidden>
-                <div class="arrow-top"></div>
-                <div class="arrow-bottom"></div>
+            <div class="arrow-right">
+                <img src="assets/right-arrow.png" alt="arrow-right">
             </div>
-            <img class="project-image" src="assets/placeholder.png">
-            <div class="indicators">
-                <div class="on" id="indicator-1"></div>
-                <div class="off" id="indicator-2"></div>
-                <div class="off" id="indicator-3"></div>
+            <div class="swiper">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide"><a href="#"><img class="project-image" src="assets/placeholder.png"></a></div>
+                    <div class="swiper-slide"><a href="#"><img class="project-image" src="assets/placeholder1.png"></a></div>
+                    <div class="swiper-slide"><a href="#"><img class="project-image" src="assets/placeholder2.png"></a></div>
+                </div>
+                <div class="swiper-pagination"></div>
+            </div>
             </div>
         </div>
     </section>
 
-    <script src="scroll-animations.js" type="module" defer></script>
-    <script src="menu.js" defer></script>
+    <script src="scripts/slider.js" defer></script>
+    <script src="scripts/scroll-animations.js" defer></script>
+    <script src="scripts/menu.js" defer></script>
 </body>
 </html>
