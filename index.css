@@ -71,7 +71,7 @@ a, a:visited {
 
 }
 
-/* Will be toggled using menu on small screens */
+/* Will be opened using menu on small screens */
 .hero-sidenav {
     display: none;
 }
@@ -348,8 +348,6 @@ a, a:visited {
         top: 60px;
         right: 50px;
         z-index: 1500;
-
-        /* Animation matching the navbar's */
     }
 
     .navbar-menu:hover {
